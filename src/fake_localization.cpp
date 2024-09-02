@@ -184,11 +184,12 @@ private:
         pub_particleCloud_->publish(particleCloud_);    
     }
 
-    // ???
+    // Not directly subscribing from MessageFilter. 
     void cbOdom(const std::shared_ptr<nav_msgs::msg::Odometry> odom){
         std::shared_ptr<nav_msgs::msg::Odometry> new_odom = std::make_shared<nav_msgs::msg::Odometry>();
         *new_odom = *odom;
         new_odom->header.frame_id = odom_frame_id_;
+        // Manually call message filter for odom
         filter_odom_->add(new_odom);
     }
 
