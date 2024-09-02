@@ -95,7 +95,7 @@ public:
         filter_odom_->registerCallback(&FakeLocalization::update, this);
 
         // rviz2 initpose: message filter
-        sub_initPose_.subscribe(this, "initpose");
+        sub_initPose_.subscribe(this, "initialpose");
         filter_initPose_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PoseWithCovarianceStamped>>(
             sub_initPose_, *tf_buffer_, global_frame_id_, 1, this->get_node_logging_interface(), this->get_node_clock_interface()
         );
