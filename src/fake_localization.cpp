@@ -23,7 +23,6 @@
 
 using namespace std::chrono_literals;
 using namespace std::placeholders;
-// Publish map-odom transformations as if there is running amcl node
 
 class FakeLocalization: public rclcpp::Node{
 public:
